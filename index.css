@@ -1,6 +1,9 @@
 #
 # $Id$
 #
+
+# This hanging body definition is not needed, except my local copy
+# of firefox will not set the background colour without it being here.
 #body{}
 
 body{
