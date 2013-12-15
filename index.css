@@ -1,0 +1,45 @@
+#
+# $URL$
+# $Author$
+# $Revision$
+# $Date$
+#
+#body{}
+
+body{
+    background-color:burlywood;
+}
+
+h1{
+    color:darkred;
+    text-shadow:10px 10px 10px red;
+}
+
+h2{
+    color:darkred;
+    text-shadow:5px 5px 10px red;}
+
+ul{
+    color:red;
+    font-size:110%;
+}
+
+li{
+    color:black;
+    font-size:100%;
+}
+
+pre{
+    color:green;
+    background-color:black;
+    padding:1em;
+    border:2px dotted green;
+}
+
+table.open{
+    border:none;
+}
+
+th.horizontal{
+    text-align:right;
+}
