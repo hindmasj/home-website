@@ -20,28 +20,9 @@ home.btconnect.com/sjhindmarch</a></td></tr>
 hindmasj</a></td></tr>
 </table>
 <hr/>
-<h2>Seeing ~sjh</h2>
-<p>How to set up the local home page on Apache HTTPD.</p>
-<ul>HTTPD Settings
-<li>As root edit <i>/etc/httpd/conf.d/userdir.conf</i>
-and follow the instructions:-<ul>
-<li>Comment out the "UserDir disabled"</li>
-<li>Uncomment the "UserDir public_html"</li></ul>
-</li>
-<li>Get HTTPD to reload the config <pre>systemctl reload httpd</pre></li>
-</ul>
-<ul>Selinux Settings
-<li>Set boolean to allow user home pages
-<pre>setsebool -P httpd_enable_homedirs true</pre></li>
-</ul>
-<ul>Directory Settings
-<li>As yourself:-
-<li>Create the directory <i>~/public_html</i></li>
-<li>Grant read and execute on that directory
-<pre>chmod og+rx ~/public_html</pre></li>
-<li>Grant read on your home directory
-<pre>chmod og+r ~</pre></li>
-</ul>
+<h2>Internal Pages</h2>
+<li><a href="apache.html">Using Apache HTTPD</a></li>
+<li><a href="d3.html">Getting to grips with D3</a></li>
 <hr/>
 <h2>Navigation</h2>
 <p>

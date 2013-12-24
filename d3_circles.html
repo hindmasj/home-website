@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Circles</title>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" type="text/css" href="index.css" />
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="d3_circles.js" charset="utf-8"></script>
+</head>
+<body>
+<h2>Circles</h2>
+<p>Draw some data driven circles using code from the <a href="http://mbostock.github.com/d3/tutorial/circle.html">Three Little Circles</a> tutorial.</p>
+<div id="workarea">
+  <svg id="svg">
+  </svg>
+  <table>
+    <tr>
+      <th>Colour:</th>
+      <td>
+	<button onclick="cfill('blue')">Blue</button>
+	<button onclick="cfill('red')">Red</button>
+	<button onclick="cfill('white')">White</button>
+	<button onclick="cfill('none')">None</button>
+      </td>
+    </tr>
+    <tr>
+      <th>X-Align:</th>
+      <td>
+	<button onclick="cxalign(true)">On</button>
+	<button onclick="cxalign(false)">Off</button>
+      </td>
+    </tr>
+    <tr>
+      <th>Y-Align:</th>
+      <td>
+	<button onclick="cyalign(true)">On</button>
+	<button onclick="cyalign(false)">Off</button>
+      </td>
+    </tr>
+    <tr>
+      <th>Scaled Size:</th>
+      <td>
+	<button onclick="csize(true)">On</button>
+	<button onclick="csize(false)">Off</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<hr/>
+<h2>Navigation</h2>
+<p>
+[<a href="d3.html">D3</a>]
+[<a href=".">Index</a>]
+[<a href="/">Site</a>]
+[<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
+</p>
+<hr/>
+</body>
+</html>

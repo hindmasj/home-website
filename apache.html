@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Using Apache HTTPD</title>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+<body>
+<h1>Using Apache HTTPD</h1>
+<h2>Seeing User Pages</h2>
+<p>How to set up the local home page on Apache HTTPD.</p>
+<ul>HTTPD Settings
+<li>As root edit <i>/etc/httpd/conf.d/userdir.conf</i>
+and follow the instructions:-<ul>
+<li>Comment out the "UserDir disabled"</li>
+<li>Uncomment the "UserDir public_html"</li></ul>
+</li>
+<li>Get HTTPD to reload the config <pre>systemctl reload httpd</pre></li>
+</ul>
+<ul>Selinux Settings
+<li>Set boolean to allow user home pages
+<pre>setsebool -P httpd_enable_homedirs true</pre></li>
+</ul>
+<ul>Directory Settings
+<li>As yourself:-
+<li>Create the directory <i>~/public_html</i></li>
+<li>Grant read and execute on that directory
+<pre>chmod og+rx ~/public_html</pre></li>
+<li>Grant read on your home directory
+<pre>chmod og+r ~</pre></li>
+</ul>
+<hr/>
+<h2>Navigation</h2>
+<p>
+[<a href=".">Index</a>]
+[<a href="/">Site</a>]
+[<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
+</p>
+<hr/>
+</body>
+</html>

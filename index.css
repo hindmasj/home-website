@@ -1,10 +1,7 @@
-#
-# $Id$
-#
-
-# This hanging body definition is not needed, except my local copy
-# of firefox will not set the background colour without it being here.
-#body{}
+/*
+ * $Id$
+ *
+ */
 
 body{
     background-color:burlywood;
@@ -42,4 +39,62 @@ table.open{
 
 th.horizontal{
     text-align:right;
+}
+
+/* **********************
+ * D3 Examples
+ * **********************/
+
+#workarea{
+  background: #fff;
+  border: solid 1px #ddd;
+  box-shadow: 0 0 4px rgba(0,0,0,.2);
+  width:365px;
+}
+
+#workarea svg{
+  border: solid 2px #ddd;
+  height:180px;
+  width:360px;
+}
+
+#workarea circle{
+  fill:blue;
+  stroke:black;
+  stroke-width:1.5px;
+}
+
+#workarea.bar {
+  display: inline-block;
+  margin-left: 2px;
+  width: 3em;
+  background-color: teal;
+  color: black;
+}
+
+#workarea.box {
+  display: inline-block;
+  margin-left: 2px;
+  width: 3em;
+  text-align:center;
+}
+
+.axis path, .axis line { 
+  fill:none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis text { 
+  font-family: sans-serif;
+  font-size: 11px;
+}
+
+.grid .tick {
+    stroke: lightgrey;
+    opacity: 0.7;
+}
+
+.grid path {
+      stroke-width: 0;
 }
