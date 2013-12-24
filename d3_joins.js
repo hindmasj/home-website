@@ -1,7 +1,7 @@
-/* $URL: https://svn.coolworld.bt.co.uk/svn/sjh/trunk/websites/development/javascript/d3_joins.js $
- * $Author: sjh $
- * $Revision: 323 $
- * $Date: 2012-12-20 17:41:17 +0000 (Thu, 20 Dec 2012) $
+/* 
+ * D3 Data Joins Example
+ * Copyright SJ Hindmarch 2013
+ * All Rights Reserved
  */
 
 var scale_x=d3.scale.linear().domain([0,100]).range([0,360]);
