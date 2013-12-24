@@ -5,6 +5,8 @@
  */
 
 function create(dataPoints){
+    svg=d3.select("#svg");
+
     var circle=svg.selectAll("circle");
     circle.data(dataPoints).enter().append("circle")
     .attr("cx",function(d){return (2*d)})
@@ -23,11 +25,13 @@ function create(dataPoints){
 }
 
 function cfill(colour){
+    svg=d3.select("#svg");
     var circle=svg.selectAll("circle");
     circle.style("fill",colour);
 }
 	
 function cyalign(state){
+    svg=d3.select("#svg");
     var circle=svg.selectAll("circle");
     var text=svg.selectAll("text");
     if(state){
@@ -41,6 +45,7 @@ function cyalign(state){
 }
 
 function cxalign(state){
+    svg=d3.select("#svg");
     var circle=svg.selectAll("circle");
     var text=svg.selectAll("text");
     if(state){
@@ -54,6 +59,7 @@ function cxalign(state){
 }
 
 function csize(state){
+    svg=d3.select("#svg");
     var circle=svg.selectAll("circle");
     if(state){
 	var a=function(d,i){return 5*Math.sqrt(d)};
@@ -63,6 +69,7 @@ function csize(state){
     }
 }
 
-svg=d3.select("#svg");
-var dataPoints=[10,25,60,94];
-create(dataPoints);
+function init(){
+    var data=[10,25,60,94];
+    create(data);
+}

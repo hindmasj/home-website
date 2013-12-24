@@ -1,6 +1,10 @@
 /*
- * $Id$
+ * Some simple styles
  *
+ * Copyright SJ Hindmarch 2013
+ * All Rights Reserved
+ *
+ * $Id$
  */
 
 body{
@@ -64,7 +68,7 @@ th.horizontal{
   stroke-width:1.5px;
 }
 
-#workarea.bar {
+#workarea .bar {
   display: inline-block;
   margin-left: 2px;
   width: 3em;
@@ -72,7 +76,7 @@ th.horizontal{
   color: black;
 }
 
-#workarea.box {
+#workarea .box {
   display: inline-block;
   margin-left: 2px;
   width: 3em;
