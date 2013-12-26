@@ -1,0 +1,27 @@
+/*
+ * Styles for iWD charting.
+ *
+ * Copyright SJ Hindmarch 2013
+ * All Rights Reserved
+ *
+ * $Id$
+ */
+
+#chartarea svg,table{
+  background: #fff;
+  border: solid 1px #ddd;
+  box-shadow: 0 0 4px rgba(0,0,0,.2);
+}
+
+#chartarea th{
+    background: #888;
+    color: #fff;
+}
+
+#chartarea td{
+    background: #ddd;
+}
+
+#chartarea .initp{
+    text-align:center;
+}

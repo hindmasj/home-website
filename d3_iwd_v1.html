@@ -1,0 +1,61 @@
+<!DOCTYPE HTML5>
+<!--
+  -- iWD Priority Visualisation With D3
+  -- Copyright SJ Hindmarch 2013
+  -- All Rights Reserved
+  -->
+<html>
+  <head>
+    <title>Display iWD Priorities for PM</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="iwd.css" />
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="d3_iwd_v1.js"></script>
+  </head>
+
+  <body>
+    <h1>Display iWD Priorities for PM</h1>
+    <p>Draw the time-priority profiles for Production Management workflows on PM. This test should be the basis for a display and design tool for planning new workflows.</p>
+
+    <div id="chartarea">
+      <svg id="pm_t2r">
+      </svg>
+      <table id="pm_t2r_t"></table>
+      <script>
+	chart2=new PriorityChart("#pm_t2r","#pm_t2r_t");
+	d=new Priority("default","darkgray",800);
+	var priorities=[
+	new Priority("DHS","red",4000),
+	new Priority("Voice","orange",3500),
+	new Priority("Flow PONR","green",3200,
+	[[-240,3250],[-45,3300],[-15,3350],[5,3400],[10,3450]]),
+	new Priority("CL 4","darkblue",2750,
+	[[-120,2800],[-15,2850],[0,2900],[5,2950],[10,3000],
+	[15,3050],[30,3100]]),
+	new Priority("CL 3","darkcyan",2250,
+	[[-120,2300],[0,2350],[5,2400],[10,2450],[15,2500],
+	[30,2550],[45,2600]]),
+	new Priority("CL 1 & 2, Prov Appt","blue",1500,
+	[[-120,1600],[-60,1700],[-30,1750],[-15,1800],[0,1850],
+	[5,1900],[10,1950],[15,2000],[30,2050],[45,2100]]),
+	d
+	];
+	chart2.addPriority.apply(chart2,priorities);
+	d.initP=1000;
+	chart2.updatePriority(d);
+	chart2.outputData();
+      </script>
+    </div>
+
+    <hr/>
+    <h2>Navigation</h2>
+    <p>
+      [<a href="d3.html">D3</a>]
+      [<a href=".">Index</a>]
+      [<a href="/">Site</a>]
+      [<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
+    </p>
+    <hr/>
+  </body>
+</html>
