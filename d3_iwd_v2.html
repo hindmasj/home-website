@@ -1,0 +1,79 @@
+<!DOCTYPE HTML5>
+<!--
+  -- iWD Priority Visualisation With D3
+  -- Copyright SJ Hindmarch 2013
+  -- All Rights Reserved
+  -->
+<html>
+  <head>
+    <title>Retrieve Priorities From A Table</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="iwd.css" />
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="d3_iwd_v1.js"></script>
+    <script type="text/javascript" src="d3_iwd_v2.js"></script>
+  </head>
+
+  <body>
+    <h1>Retrieve Priorities From A Table</h1>
+    <p>Use a simplified set of priority transitions and retrieve the values from a table. This allows new priority flows to be created on the fly.</p>
+    <div id="chartarea">
+      <svg id="prty_chart" />
+      <table id="prty_table">
+	<tr>
+	  <th rowspan="2">Name</th>
+	  <th rowspan="2">Colour</th>
+	  <th rowspan="2">Initial<br/>Priority</th>
+	  <th colspan="7">Transitions (at x minutes)</th>
+	</tr>
+	<tr>
+	  <th>-120</th><th>-60</th><th>-30</th><th>0</th>
+	  <th>30</th><th>60</th><th>120</th>
+	</tr>
+	<tr class="priority">
+	  <td class="name">DHS</td>
+	  <td class="color">red</td>
+	  <td>
+	    <input type="text" class="initp" maxlength="4" size="8" 
+		   value="4000"></td>
+	  <td>
+	    <input type="text" class="priority" maxlength="4" size="8" 
+		   time="-120"/></td>
+	  <td>
+	    <input type="text" class="priority" maxlength="4" size="8" 
+		   time="-60"/></td>
+	  <td>
+	    <input type="text" class="priority" maxlength="4" size="8" 
+		   time="-30"/></td>
+	  <td>
+	    <input type="text" class="priority" maxlength="4" size="8" 
+		   time="0"/></td>
+	  <td>
+	    <input type="text" class="priority" maxlength="4" size="8" 
+		   time="30"/></td>
+	  <td>
+	    <input type="text" class="priority" maxlength="4" size="8" 
+		   time="60"/></td>
+	  <td>
+	    <input type="text" class="priority" maxlength="4" size="8" 
+		   time="120"/></td>
+	</tr>
+      </table>
+      <script>
+	chart=new PriorityChart("#prty_chart");
+	priority=new SimpleRowPriority(d3.select(".priority"));
+	chart.addPriority.apply(chart,[priority]);
+      </script>
+    </div>
+    <hr/>
+    <h2>Navigation</h2>
+    <p>
+      [<a href="d3.html">D3</a>]
+      [<a href=".">Index</a>]
+      [<a href="/">Site</a>]
+      [<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
+    </p>
+    <hr/>
+  </body>
+</html>

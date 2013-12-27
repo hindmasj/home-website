@@ -2,8 +2,10 @@
  * iWD Priority Visualisation With D3
  * Copyright SJ Hindmarch 2013
  * All Rights Reserved
+ *
+ * Basic chart drawing and priority flow modelling
+ *
  */
-
 
 /* Create a priority class that stores priority data */
 function Priority(name,color,initialPriority,transitions){
@@ -138,21 +140,8 @@ PriorityChart.prototype.drawLabel=function(item){
 
 /* Draw the graphics for an individual priority */
 PriorityChart.prototype.drawLine=function(item){
+    /* Get the priority line from the priority item */
     var lineD=item.getPriorityLine(this.dx_min,this.dx_max);
-    /* Define array of points on line, starting at the left */
-    var currP=item.initP;
-    var lineD2=[[this.dx_min,currP]];
-
-    /* If there are transitions, add a point for each */
-    if(item.transitions){
-	item.transitions.forEach(function(x){
-		currP=x[1];
-		lineD2.push(x);
-	    });
-    }
-
-    /* Add a final point to the right */
-    lineD2.push([this.dx_max,currP]);
 
     /* Draw the line */
     this.g.append("path").attr('label',item.name)

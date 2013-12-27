@@ -6,7 +6,7 @@
   -->
 <html>
   <head>
-    <title>Display iWD Priorities for PM</title>
+    <title>Display Existing iWD Priorities For PM</title>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="stylesheet" type="text/css" href="iwd.css" />
@@ -15,12 +15,11 @@
   </head>
 
   <body>
-    <h1>Display iWD Priorities for PM</h1>
+    <h1>Display Existing iWD Priorities For PM</h1>
     <p>Draw the time-priority profiles for Production Management workflows on PM. This test should be the basis for a display and design tool for planning new workflows.</p>
 
     <div id="chartarea">
-      <svg id="pm_t2r">
-      </svg>
+      <svg id="pm_t2r" />
       <table id="pm_t2r_t"></table>
       <script>
 	chart2=new PriorityChart("#pm_t2r","#pm_t2r_t");
