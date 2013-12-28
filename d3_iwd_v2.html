@@ -38,32 +38,88 @@
 	    <input type="text" class="initp" maxlength="4" size="8" 
 		   value="4000"></td>
 	  <td>
-	    <input type="text" class="priority" maxlength="4" size="8" 
+	    <input type="text" class="transition" maxlength="4" size="8" 
 		   time="-120"/></td>
 	  <td>
-	    <input type="text" class="priority" maxlength="4" size="8" 
+	    <input type="text" class="transition" maxlength="4" size="8" 
 		   time="-60"/></td>
 	  <td>
-	    <input type="text" class="priority" maxlength="4" size="8" 
+	    <input type="text" class="transition" maxlength="4" size="8" 
 		   time="-30"/></td>
 	  <td>
-	    <input type="text" class="priority" maxlength="4" size="8" 
+	    <input type="text" class="transition" maxlength="4" size="8" 
 		   time="0"/></td>
 	  <td>
-	    <input type="text" class="priority" maxlength="4" size="8" 
+	    <input type="text" class="transition" maxlength="4" size="8" 
 		   time="30"/></td>
 	  <td>
-	    <input type="text" class="priority" maxlength="4" size="8" 
+	    <input type="text" class="transition" maxlength="4" size="8" 
 		   time="60"/></td>
 	  <td>
-	    <input type="text" class="priority" maxlength="4" size="8" 
+	    <input type="text" class="transition" maxlength="4" size="8" 
 		   time="120"/></td>
+	</tr>
+	<tr class="priority">
+	  <td class="name">Voice</td>
+	  <td class="color">orange</td>
+	  <td>
+	    <input type="text" class="initp" maxlength="4" size="8" 
+		   value="3500"></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="-120"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="-60"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="-30"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="0"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="30"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="60"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="120"/></td>
+	</tr>
+	<tr class="priority">
+	  <td class="name">CL1</td>
+	  <td class="color">blue</td>
+	  <td>
+	    <input type="text" class="initp" maxlength="4" size="8" 
+		   value="1000"></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="-120" value="1100"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="-60" value="1200"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="-30" value="1300"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="0" value="1400"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="30" value="1500"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="60" value="1600"/></td>
+	  <td>
+	    <input type="text" class="transition" maxlength="4" size="8" 
+		   time="120" value="1700"/></td>
 	</tr>
       </table>
       <script>
 	chart=new PriorityChart("#prty_chart");
-	priority=new SimpleRowPriority(d3.select(".priority"));
-	chart.addPriority.apply(chart,[priority]);
+	priorities=scanPrioritiesTable("#prty_table",SimpleRowPriority);
+	chart.addPriority.apply(chart,priorities);
       </script>
     </div>
     <hr/>

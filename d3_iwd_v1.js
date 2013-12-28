@@ -20,7 +20,7 @@ Priority.prototype.getPriorityLine=function(startTime,endTime){
     var line=[];
 
     /* If transitions not set return flat line */
-    if(this.transitions==null){
+    if(this.transitions==null || this.transitions.length==0){
 	line.push([startTime,this.initP]);
 	line.push([endTime,this.initP]);
 	return line;
@@ -55,7 +55,7 @@ function PriorityChart(chartName,tableName){
 
     /* Set dimensions of area we will be drawing in */
     this.h=480;
-    this.w=640;
+    this.w=800;
     this.padding=10;
     this.x_padding=40;
 
@@ -65,7 +65,7 @@ function PriorityChart(chartName,tableName){
 
     /* Create drawing scales */
     this.dx_min=-300;
-    this.dx_max=60;
+    this.dx_max=150;
     this.dy_min=0;
     this.dy_max=4200;
 
