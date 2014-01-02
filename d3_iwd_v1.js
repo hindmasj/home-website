@@ -46,7 +46,22 @@ Priority.prototype.getPriorityLine=function(startTime,endTime){
     line.push([endTime,currP]);
     
     return line;
-}
+};
+
+/* Function to get a transition at a specific time */
+Priority.prototype.getTransition=function(time){
+    if(this.transitions==null || this.transitions.length==0){
+	return null;
+    }
+
+    for(var i=0;i<this.transitions.length;i++){
+	var transition=this.transitions[i]
+	if(transition[0]==time){
+	    return transition[1];
+	}
+    }
+    return null;
+};
 
 /* Create a chart class that can draw a basic chart */
 function PriorityChart(chartName,tableName){

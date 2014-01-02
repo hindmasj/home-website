@@ -31,96 +31,37 @@
 	  <th>-120</th><th>-60</th><th>-30</th><th>0</th>
 	  <th>30</th><th>60</th><th>120</th>
 	</tr>
-	<tr class="priority">
-	  <td class="name">DHS</td>
-	  <td class="color">red</td>
-	  <td>
-	    <input type="text" class="initp" maxlength="4" size="8" 
-		   value="4000"></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="-120"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="-60"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="-30"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="0"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="30"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="60"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="120"/></td>
-	</tr>
-	<tr class="priority">
-	  <td class="name">Voice</td>
-	  <td class="color">orange</td>
-	  <td>
-	    <input type="text" class="initp" maxlength="4" size="8" 
-		   value="3500"></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="-120"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="-60"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="-30"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="0"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="30"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="60"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="120"/></td>
-	</tr>
-	<tr class="priority">
-	  <td class="name">CL1</td>
-	  <td class="color">blue</td>
-	  <td>
-	    <input type="text" class="initp" maxlength="4" size="8" 
-		   value="1000"></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="-120" value="1100"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="-60" value="1200"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="-30" value="1300"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="0" value="1400"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="30" value="1500"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="60" value="1600"/></td>
-	  <td>
-	    <input type="text" class="transition" maxlength="4" size="8" 
-		   time="120" value="1700"/></td>
-	</tr>
       </table>
       <script>
 	chart=new PriorityChart("#prty_chart");
-	priorities=scanPrioritiesTable("#prty_table",SimpleRowPriority);
+	var priorities=[
+        new Priority("default","darkgray",1000),
+	new Priority("DHS","red",4000),
+	new Priority("Voice","orange",3500),
+	new Priority("Flow PONR","green",3200,
+	[[-120,3250],[-60,3300],[-30,3350],[30,3400],[60,3450]]),
+	new Priority("CL 4","darkblue",2750,
+	[[-120,2800],[-30,2850],[0,2900],[30,2950],[30,3100]]),
+	new Priority("CL 3","darkcyan",2250,
+	[[-120,2300],[0,2350],[30,2400],[60,2500],[120,2600]]),
+	new Priority("CL 1 & 2, Prov Appt","blue",1500,
+	[[-120,1600],[-60,1700],[-30,1800],[0,2000],[60,2100]]),
+	];
 	chart.addPriority.apply(chart,priorities);
+        createSimpleRowPrioritiesTable('#prty_table',priorities);
       </script>
+      <button onclick="redrawPriorityChart(
+        chart,'#prty_table',SimpleRowPriority)">Redraw</button>
+      <h2>New priority</h2>
+      Name:&nbsp;
+      <input type="text" id="new_name" value="noname" size="12">
+      Colour:&nbsp;
+      <input type="text" id="new_color" value="black" size="12">
+      Initial Priority:&nbsp;
+      <input type="text" id="new_initp" value="1000" maxlength="4" size="6">
+      <button onclick="addSimplePriorityRow(
+        '#prty_table','#new_name','#new_color','#new_initp')">
+      Add</button>
     </div>
     <hr/>
     <h2>Navigation</h2>

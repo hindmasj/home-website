@@ -12,7 +12,7 @@ function SimpleRowPriority(row){
     this.row=row;
     var name=row.select('.name').text();
     var color=row.select('.color').text();
-    var initP=row.select('.initp').attr('value');
+    var initP=row.select('.initp').node().value;
     var transitions=this.scanTransitions(row);
     Priority.call(this,name,color,initP,transitions);
 }
@@ -27,8 +27,8 @@ SimpleRowPriority.prototype.scanTransitions=function(row){
     row.selectAll('input.transition').each(function(d,i){
 	var item=d3.select(this);
 	var time=item.attr('time');
-	var value=item.attr('value');
-	if(value!=null){
+	var value=item.node().value;
+	if(value!=""){
 	    transitions.push([time,value]);
 	}
     });
@@ -45,4 +45,58 @@ function scanPrioritiesTable(tableName,type){
 	priorities.push(new type(d3.select(this)));
     });
     return priorities;
+}
+
+/* Create the table from initial data */
+function createSimpleRowPrioritiesTable(tableId,priorities){
+    var times=['-120','-60','-30','0','30','60','120'];
+
+    var table=d3.select(tableId);
+    priorities.forEach(function(priority){
+	    var row=table.append('tr').attr('class','priority');
+	    row.append('td').attr('class','name').text(priority.name);
+	    row.append('td').attr('class','color').text(priority.color);
+	    row.append('td').append('input').attr('type','text')
+            .attr('class','initp').attr('maxlength','4').attr('size','8')
+	    .attr('value',priority.initP);
+	    times.forEach(function(d,i){
+		    var value=priority.getTransition(d);
+		    var cell=row.append('td').append('input')
+		    .attr('type','text')
+		    .attr('class','transition').attr('maxlength','4')
+		    .attr('size','8').attr('time',d)
+		    if(value){
+			cell.attr('value',value);
+		    }
+		});
+	});
+    
+}
+
+/* Add a row to the table */
+function addSimplePriorityRow(tableId,nameId,colorId,initpId){
+    var times=['-120','-60','-30','0','30','60','120'];
+
+    var name=d3.select(nameId).node().value;
+    var color=d3.select(colorId).node().value;
+    var initp=d3.select(initpId).node().value;
+
+    var table=d3.select(tableId);
+    var row=table.append('tr').attr('class','priority');
+    row.append('td').attr('class','name').text(name);
+    row.append('td').attr('class','color').text(color);
+    row.append('td').append('input').attr('type','text').attr('class','initp')
+    .attr('maxlength','4').attr('size','8').attr('value',initp);
+    times.forEach(function(x){
+	    row.append('td').append('input').attr('type','text')
+	    .attr('class','transition').attr('maxlength','4').attr('size','8')
+	    .attr('time',x);
+	});
+}
+
+/* redraw the chart from the current table */
+function redrawPriorityChart(chart,tableId,pFunction){
+    var priorities=scanPrioritiesTable(tableId,pFunction);
+    priorities.forEach(function(x){
+	    chart.updatePriority(x)});
 }
