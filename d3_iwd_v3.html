@@ -1,0 +1,69 @@
+<!DOCTYPE HTML5>
+<!--
+  -- iWD Priority Visualisation With D3
+  -- Copyright SJ Hindmarch 2014
+  -- All Rights Reserved
+  -->
+<html>
+  <head>
+    <title>Generate Priorities Using Profiles</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="iwd.css" />
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="d3_iwd_v1.js"></script>
+    <script type="text/javascript" src="d3_iwd_v2.js"></script>
+    <script type="text/javascript" src="d3_iwd_v3.js"></script>
+  </head>
+
+  <body>
+    <h1>Generate Priorities Using Profiles</h1>
+    <p>Use a choice of algorithms to give different profile shapes to the priorities.</p>
+    <div id="chartarea">
+      <svg id="prty_chart" />
+      <table id="prty_table">
+	<tr>
+	  <th>Name</th>
+	  <th>Colour</th>
+	  <th>Profile</th>
+	  <th>Business Value</th>
+	</tr>
+      </table>
+      <script>
+	chart=new PriorityChart("#prty_chart");
+	var priorities=[
+	new ProfilePriority("DHS","red","default",3000),
+	new ProfilePriority("Voice","orange","default",2500),
+	];
+	chart.addPriority.apply(chart,priorities);
+        createProfilePrioritiesTable('#prty_table',priorities);
+      </script>
+      <button onclick="redrawPriorityChart(
+        chart,'#prty_table',ProfileRowPriority)">Redraw</button>
+      <h2>New priority</h2>
+      <div id="new_profile" >
+      Name:&nbsp;
+      <input type="text" class="name" value="noname" size="12">
+      Colour:&nbsp;
+      <input type="text" class="color" value="black" size="12">
+      Profile:&nbsp;
+      <script>appendProfileSelector(d3.select("#new_profile"),"default");
+      </script>
+      Business Value:&nbsp;
+      <input type="text" class="bv" value="1" maxlength="4" size="6">
+      <button onclick="addProfilePriorityRow(
+        '#prty_table','#new_profile')">
+      Add</button>
+      </div>
+    </div>
+    <hr/>
+    <h2>Navigation</h2>
+    <p>
+      [<a href="d3.html">D3</a>]
+      [<a href=".">Index</a>]
+      [<a href="/">Site</a>]
+      [<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
+    </p>
+    <hr/>
+  </body>
+</html>

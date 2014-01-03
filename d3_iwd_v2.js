@@ -97,6 +97,9 @@ function addSimplePriorityRow(tableId,nameId,colorId,initpId){
 /* redraw the chart from the current table */
 function redrawPriorityChart(chart,tableId,pFunction){
     var priorities=scanPrioritiesTable(tableId,pFunction);
+    console.log('redraw: priorities.length='+priorities.length);
     priorities.forEach(function(x){
-	    chart.updatePriority(x)});
+	    //console.log('redraw: priority: '+x.name+','+x.profile);
+	    chart.updatePriority(x);
+	});
 }

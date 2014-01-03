@@ -181,6 +181,7 @@ PriorityChart.prototype.updatePriority=function(){
     var chart=this;
     for(var i=0;i<arguments.length;i++){
 	item=arguments[i];
+	//console.log('PriorityChart::updatePriority:'+item.name);
 	this.g.selectAll("[label='"+item.name+"']").remove();
 	chart.priorities[item.name]=item;
 	chart.drawLabel(item);
