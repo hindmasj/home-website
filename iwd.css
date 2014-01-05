@@ -25,3 +25,15 @@
 #chartarea .initp{
     text-align:center;
 }
+
+section.chart{
+    padding:5px;
+    float:left;
+    width:inherit;
+}
+
+section.data{
+    padding:5px;
+    float:left;
+    width:inherit;
+}

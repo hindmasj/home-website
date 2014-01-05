@@ -1,5 +1,13 @@
 2014-01-05  Steve  <sjh@kanga.hindmarch.home>
 
+	* d3_iwd_v3.html:
+	* d3_iwd_v3.js:
+	* index.css:
+	* iwd.css:
+	- finished the profiles
+	- added the rest of the priorities
+	- added sections and footers with styling
+
 	* ChangeLog
 	- project change log created - better late than never eh?
 

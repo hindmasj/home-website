@@ -65,8 +65,20 @@ FastPeakProfileFunction.prototype.getTransitions=function(bv){
     return this.createTransitionsFromShape(this.shape,bv)
 };
 /* A slow peak reaches a peak slowly and then subsides quickly */
+SlowPeakProfileFunction.prototype.getTransitions=function(bv){
+    this.shape=[[-120,400],[-90,600],[-60,800],[-30,1000],[5,200]];
+    return this.createTransitionsFromShape(this.shape,bv)
+};
 /* A high tail has long past past due item higher than due now */
+HighTailProfileFunction.prototype.getTransitions=function(bv){
+    this.shape=[[-30,800],[5,600],[60,1000]];
+    return this.createTransitionsFromShape(this.shape,bv)
+};
 /* A low tail has long past past due item lower than due now */
+LowTailProfileFunction.prototype.getTransitions=function(bv){
+    this.shape=[[-30,1000],[5,600],[60,800]];
+    return this.createTransitionsFromShape(this.shape,bv)
+};
 
 /* Create a child priority that uses a profile function to determine
  * transitions */

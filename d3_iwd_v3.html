@@ -19,8 +19,12 @@
   <body>
     <h1>Generate Priorities Using Profiles</h1>
     <p>Use a choice of algorithms to give different profile shapes to the priorities.</p>
+    <hr/>
     <div id="chartarea">
+      <section class="chart">
       <svg id="prty_chart" />
+      </section>
+      <section class="data">
       <table id="prty_table">
 	<tr>
 	  <th>Name</th>
@@ -29,19 +33,29 @@
 	  <th>Business Value</th>
 	</tr>
       </table>
+      <button onclick="redrawPriorityChart(
+        chart,'#prty_table',ProfileRowPriority)">Redraw</button>
+      </section>
       <script>
 	chart=new PriorityChart("#prty_chart");
 	var priorities=[
 	new ProfilePriority("DHS","red","default",3000),
 	new ProfilePriority("Voice","orange","default",2500),
+	new ProfilePriority("Flow PONR","green","slow peak",1000),
+	new ProfilePriority("CL4","darkblue","fast peak",500),
+	new ProfilePriority("CL3","darkcyan","high tail",400),
+	new ProfilePriority("CL2","blue","high tail",300),
+	new ProfilePriority("CL1","cyan","low tail",200),
+	new ProfilePriority("Prov Appt","#F88","default",600),
 	];
 	chart.addPriority.apply(chart,priorities);
         createProfilePrioritiesTable('#prty_table',priorities);
       </script>
-      <button onclick="redrawPriorityChart(
-        chart,'#prty_table',ProfileRowPriority)">Redraw</button>
+    </div>
+      
+    <section id="new_profile" >
+      <hr/>
       <h2>New priority</h2>
-      <div id="new_profile" >
       Name:&nbsp;
       <input type="text" class="name" value="noname" size="12">
       Colour:&nbsp;
@@ -52,18 +66,19 @@
       Business Value:&nbsp;
       <input type="text" class="bv" value="1" maxlength="4" size="6">
       <button onclick="addProfilePriorityRow(
-        '#prty_table','#new_profile')">
-      Add</button>
-      </div>
-    </div>
-    <hr/>
-    <h2>Navigation</h2>
-    <p>
-      [<a href="d3.html">D3</a>]
-      [<a href=".">Index</a>]
-      [<a href="/">Site</a>]
-      [<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
-    </p>
-    <hr/>
+		       '#prty_table','#new_profile')">
+	Add</button>
+    </section>
+    <footer>
+      <hr/>
+      <h2>Navigation</h2>
+      <p>
+	[<a href="d3.html">D3</a>]
+	[<a href=".">Index</a>]
+	[<a href="/">Site</a>]
+	[<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
+      </p>
+      <hr/>
+    </footer>
   </body>
 </html>

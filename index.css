@@ -45,6 +45,11 @@ th.horizontal{
     text-align:right;
 }
 
+section,footer{
+    float:left;
+    width:100%;
+}
+
 /* **********************
  * D3 Examples
  * **********************/
