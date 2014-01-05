@@ -1,7 +1,7 @@
 /* 
  * D3 Data Joins Example
- * Copyright SJ Hindmarch 2013
- * All Rights Reserved
+ * Copyright SJ Hindmarch 2013-2014
+ * Distributed under the GNU General Public License
  */
 
 var scale_x=d3.scale.linear().domain([0,100]).range([0,360]);

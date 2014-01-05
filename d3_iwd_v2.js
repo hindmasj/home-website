@@ -1,7 +1,7 @@
 /* 
  * iWD Priority Visualisation With D3
- * Copyright SJ Hindmarch 2013
- * All Rights Reserved
+ * Copyright SJ Hindmarch 2013-2014
+ * Distributed under the GNU General Public License
  *
  * Create priority objects by reading from a table
  *
