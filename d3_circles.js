@@ -1,6 +1,6 @@
 /* 
  * Data Driven D3 Circles Example
- * Copyright SJ Hindmarch 2013-2014
+ * Copyright SJ Hindmarch 2013, 2014
  * Distributed under the GNU General Public License
  */
 

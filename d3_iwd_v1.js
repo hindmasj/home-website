@@ -1,6 +1,6 @@
 /* 
  * iWD Priority Visualisation With D3
- * Copyright SJ Hindmarch 2013-2014
+ * Copyright SJ Hindmarch 2013, 2014
  * Distributed under the GNU General Public License
  *
  * Basic chart drawing and priority flow modelling
