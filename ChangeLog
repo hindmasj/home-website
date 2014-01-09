@@ -1,3 +1,10 @@
+2014-01-09  Steve Hindmarch  <stephen.hindmarch@bt.com>
+
+	* d3_iwd_v3.html:
+	* d3_iwd_v1.js:
+	* d3_iwd_v3.js:
+	- working on a delete function 
+
 2014-01-05  Steve  <sjh@kanga.hindmarch.home>
 
 	* d3_iwd_v3.html:

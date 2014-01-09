@@ -170,7 +170,7 @@ PriorityChart.prototype.drawLine=function(item){
 PriorityChart.prototype.addPriority=function(){
     var chart=this;
     for(var i=0;i<arguments.length;i++){
-	item=arguments[i];
+	var item=arguments[i];
 	chart.priorities[item.name]=item;
 	chart.drawLabel(item);
 	chart.drawLine(item);
@@ -180,7 +180,7 @@ PriorityChart.prototype.addPriority=function(){
 PriorityChart.prototype.updatePriority=function(){
     var chart=this;
     for(var i=0;i<arguments.length;i++){
-	item=arguments[i];
+	var item=arguments[i];
 	//console.log('PriorityChart::updatePriority:'+item.name);
 	this.g.selectAll("[label='"+item.name+"']").remove();
 	chart.priorities[item.name]=item;

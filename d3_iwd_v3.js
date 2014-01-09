@@ -94,7 +94,6 @@ function ProfilePriority(name,color,profile,bv){
     this.profileFunction=this.createProfileFunction();
     var initP=this.profileFunction.getInitialPriority(this.bv);
     var transitions=this.profileFunction.getTransitions(this.bv);
-    console.log(transitions);
     Priority.call(this,name,color,initP,transitions);
 }
 
@@ -162,12 +161,13 @@ function createProfilePrioritiesTable(tableId,priorities){
 	    }
 	    row.append('td').append('input').attr('class','bv')
 	    .attr('value',bv);
+	    row.append('td').text('\xA0'); // non-breaking space
 	});
 
 }
 
 /* add a row to the table */
-function addProfilePriorityRow(tableId,formId){
+function addProfilePriorityRow(chart,tableId,formId){
 
     var form=d3.select(formId);
     var name=form.select('.name').node().value;
@@ -177,8 +177,20 @@ function addProfilePriorityRow(tableId,formId){
     
     var table=d3.select(tableId);
     var row=table.append('tr').attr('class','priority');
-    row.append('td').attr('class','name').text(name);
+    row.append('td').attr('class','name').attr('name',name).text(name);
     row.append('td').attr('class','color').text(color);
     appendProfileSelector(row,profile);
     row.append('td').append('input').attr('class','bv').attr('value',bv);
+
+    row.append('td').append('button').attr('type','button').text('Delete')
+    .attr('onclick','deleteProfilePriorityRow(\''+chart+
+	  '\',\''+tableId+'\',\''+name+'\')');
+}
+
+/* delete a row from the table */
+function deleteProfilePriorityRow(chart,tableId,name){
+    var cell=d3.select(tableId).selectAll('td[name='+name+']');
+    cell[0].forEach(function(d,i){
+	    d.parentElement.remove();
+	});
 }
