@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+<!--
+  -- Copyright SJ Hindmarch 2013, 2014
+  -- Distributed under the GNU General Public License
+  --
+  -->
+<html>
+<head>
+<title>Favourite Emacs Settings</title>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+<body>
+<h1>About Emacs</h1>
+<h2>Documentation</h2>
+<p>The <a href="http://www.gnu.org/software/emacs/manual/">emacs manual</a>.</p>
+<h2>Where Settings Are Stored</h2>
+<p>Personal settings for emacs are kept in the file <i>~/.emacs</i>. You can edit this by hand (with emacs). Any settings you make with the emacs customisation is also saved in here so be careful about what you change. The sections reserved for custom settings are clearly marked with comments.</p>
+<h2>Programming LISP</h2>
+<p>All emacs settings are lisp commands. If you want to know more about lisp there are a number of tutorials available.
+<ul>
+<li>A general <a href="http://mypage.iu.edu/~colallen/lp/">LISP Primer</a> from Indiana University.</li>
+<li>A tutorial geared to the <a href="http://ergoemacs.org/emacs/elisp.html">needs of emacs</a> programmers from <a href="http://ergoemacs.org/">ergoemacs.org</a>.</li>
+</ul>
+</p>
+<h1>Favourite Emacs Settings</h1>
+<h2>Kill Whole Line</h2>
+<p>Normally C-k will kill text from the current cursor position to the end of the line. If the cursor is at the beginning of the line the whole of the text is killed and you are left with a blank line. With "Kill Whole Line" set this action will remove the new line character as well, so the whole line is removed.</p>
+<p>This becomes useful in programming when you want to swap the order of two lines around (C-k, Down, C-y), or quickly duplicate one line (C-k, C-y, C-y) where the next line needs to be similar. By taking the newline with you both the kill and yank (cut and paste) actions act on the whole, instead of leaving you with one munged line and one blank one.</p>
+<p>The alternative to kill whole line is to kill twice, which will kill the trailing newline on the second kill. That seems like too many key presses to me. If I wanted to leave the newline I could always type return afterwards.</p>
+<p>Set kill whole line by adding "kill-whole-line t" to the <i>custom-set-variables</i>, either by finding the menu option or having
+<pre>
+(custom-set-variables
+ '(kill-whole-line t))
+</pre>
+</p>
+<h2>Size Default Frame</h2>
+<p>I like big frames so I can see what I am doing. I like to program sticking to the 80 column rule. So I would really like my initial emacs frame to open up 80 characters wide and almost as tall as the screen. You can play around with the frame until you get it right and then it in custom setting so it gets used every time.</p>
+<p>Let's say that the ideal size for the current machine is 80x48, which on the laptop I am using right now gives me one line above and below the frame where I can still see the desktop. So now how I make sure emacs opens in those dimensions every time?</p>
+<p>You need to add the width and height parameters to the option "default-frame-alist". See <a href="http://www.gnu.org/software/emacs/manual/html_node/elisp/Frame-Parameters.html#Frame-Parameters">the manual</a> for the full list of parameters.
+<pre>
+(add-to-list 'default-frame-alist '(height . 48))
+(add-to-list 'default-frame-alist '(width . 80))
+</pre>
+</p>
+<h2>Position Initial Frame</h2>
+<p>As well being nice and big I also want the initial frame to open in the top left corner of the desktop, but not right up in the corner. Use the option "initial-frame-list" and position parameters. This option differs from the previous one in that only the first frame is affected.
+<pre>
+(add-to-list 'initial-frame-alist '(left . 10))
+(add-to-list 'initial-frame-alist '(top . 30))
+</pre>
+The numbers are in pixels, so you may need to play around to get the scaling right. The top value is measured from the top of the screen, not of the usable desktop, so if you set the value too small it will interfere with the gnome activity bar and the window manager will move the frame to the top of the desktop.
+</p>
+<h2>Remove Toolbar<h2>
+<p>The default toolbar has nothing on it ever use. So turn it off.
+<pre>
+(custom-set-variables
+ '(tool-bar-mode nil))
+</pre>
+</p>
+<h2>Show Current Line And Column</h2>
+<p>It is often useful to know which line and column the cursor is on in the current buffer. This can be done by setting "column-number-mode".
+<pre>
+(custom-set-variables
+ '(column-number-mode t))
+</pre>
+(Line numbers are shown by default, under the control of "line-number-mode").
+<hr/>
+<h2>Navigation</h2>
+<p>
+[<a href=".">Index</a>]
+[<a href="/">Site</a>]
+[<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
+</p>
+<hr/>
+</body>
+</html>
