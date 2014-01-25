@@ -18,7 +18,13 @@ h1{
 
 h2{
     color:darkred;
-    text-shadow:5px 5px 10px red;}
+    text-shadow:5px 5px 10px red;
+}
+
+h3{
+    color:darkred;
+    text-shadow:5px 5px 10px red;
+}
 
 ul{
     color:red;
@@ -48,6 +54,11 @@ th.horizontal{
 section,footer{
     float:left;
     width:100%;
+}
+
+article{
+    max-width:1200px;
+    border-bottom:2px groove burlywood;
 }
 
 /* **********************
