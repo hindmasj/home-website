@@ -23,6 +23,17 @@
 <li>A tutorial geared to the <a href="http://ergoemacs.org/emacs/elisp.html">needs of emacs</a> programmers from <a href="http://ergoemacs.org/">ergoemacs.org</a>.</li>
 </ul>
 </p>
+<h2>Custom Set Variables</h2>
+<p>A lot of the settings are contained in a list called <i>custom-set-variables</i> to which you add variable set commands. You must ensure you only define the list once, so always add new variables to the existing setting. Once complete the list will look something like this.
+<pre>
+(custom-set-variables
+'(bool-var-1 t)
+'(bool-var-2 f)
+'(int-var-3 42)
+'(other-var-4 nil))
+</pre>
+In the sections below each variable is shown as if it were the only one set.
+</p>
 <h1>Favourite Emacs Settings</h1>
 <h2>Kill Whole Line</h2>
 <p>Normally C-k will kill text from the current cursor position to the end of the line. If the cursor is at the beginning of the line the whole of the text is killed and you are left with a blank line. With "Kill Whole Line" set this action will remove the new line character as well, so the whole line is removed.</p>
@@ -51,8 +62,8 @@
 </pre>
 The numbers are in pixels, so you may need to play around to get the scaling right. The top value is measured from the top of the screen, not of the usable desktop, so if you set the value too small it will interfere with the gnome activity bar and the window manager will move the frame to the top of the desktop.
 </p>
-<h2>Remove Toolbar<h2>
-<p>The default toolbar has nothing on it ever use. So turn it off.
+<h2>Remove Toolbar</h2>
+<p>My fingers know the key bindings so the default toolbar has nothing on it I ever use. So turn it off.
 <pre>
 (custom-set-variables
  '(tool-bar-mode nil))
@@ -65,6 +76,12 @@ The numbers are in pixels, so you may need to play around to get the scaling rig
  '(column-number-mode t))
 </pre>
 (Line numbers are shown by default, under the control of "line-number-mode").
+<h2>Remove The Splash Screen</h2>
+<p>Once you have the splash screen you do not need to see it again. So remove it.
+<pre>
+(setq inhibit-startup-message t)
+</pre>
+</p>
 <hr/>
 <h2>Navigation</h2>
 <p>
