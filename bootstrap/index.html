@@ -1,0 +1,112 @@
+<!DOCTYPE html> 
+<!--
+  -- Some experiments in bootstrap.
+  -- Copyright SJ Hindmarch 2014
+  -- Distributed under the GNU General Public License
+  -->
+<html>
+<head>
+<title>Bootstrap Index Page</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" 
+      href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../index.css" />
+</head>
+<body>
+<div class="container">
+<div class="jumbotron">
+<h1>Getting Started With Bootstrap</h1>
+<h2>References</h2>
+<ul>Source site and tutorials.
+<li><a href="http://getbootstrap.com/">Offical Site</a></li>
+<li><a href="http://getbootstrap.com/getting-started/">Getting started</a></li>
+<li><a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/">Tutorial Republic</a></li>
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-6">
+<h2>Enabling Your Site</h2>
+<ol>Steps to getting your web pages bootstrapped.
+<li>Download the zip file from the <a href="http://getbootstrap.com/getting-started/">getting started</a> page of the bootstrap site.</li>
+<li>Go to <i>/var/www/html</i> and unzip the file.</li>
+<li>(SELinux Only) Assigned the correct label "httpd_sys_content_t" to the new directory.
+<pre>
+chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
+</pre>
+</li>
+<li>Create a soft link "bootstrap" in the same directory to the unzipped directory.</li>
+<li>Add this text to the head section. Make sure these declarations come <b>before</b> any of your own declarations.
+<pre>
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+</pre>
+</li>
+<li>Add this text to the bottom of the page
+<pre>
+&lt;script src="http://code.jquery.com/jquery.min.js">&lt;/script>
+&lt;script src="/bootstrap/js/bootstrap.min.js">&lt;/script>
+</pre>
+</li>
+</ol>
+</div>
+<div class="col-xs-6">
+<h2>Creating A Layout</h2>
+<ol>This page has a simple layout with a header (the title and references), some columns (each section) and a footer (the navigation section).</p>
+<li>Sorround all of the page that you want to be bootstrapped with a "div" tag with a class of "container".
+<pre>
+&lt;div class="container">
+&lt;/div>
+</pre>
+</li>
+<li>With the "container", the header can be picked out by sourrounding it with a div of the "jumbotron" class.
+<pre>
+&lt;div class="jumbotron">
+&lt;h1>Big Heading&lt;/h1>
+&lt;p>My heading text&lt;/p>
+&lt;/div>
+</pre>
+</li>
+<li>The sections that have equal prominence should be wrapped in a "row" div, and then each section is wrapped in its own "col-xs-*" div. The "*" represents how wide the column should be, between 1 and 12. The maximum number of columns in a row is 12, so by setting these values you govern how these columns rearrange themselves as the width of the browser changes.
+<pre>
+&lt;div class="row">
+&lt;div class="col-xs-4">
+&lt;p>Section 1 text.&lt;/p>
+&lt;/div>
+&lt;div class="col-xs-4">
+&lt;p>Section 2 text.&lt;/p>
+&lt;/div>
+&lt;div class="col-xs-4">
+&lt;p>Section 3 text.&lt;/p>
+&lt;/div>
+&lt;/div>
+</li>
+<li>The navigation section uses a "nav" and a "navbar" tag.
+</li>
+</ol>
+</div>
+</div>
+<nav role="navigation" class="navbar navbar-default">
+  <div class="navbar-header">
+  <button type="button" data-target="#navbarCollapse" 
+	data-toggle="collapse" class="navbar-toggle">
+    <span class="sr-only">Toggle</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a href="#" class="navbar-brand">Navigation</a>
+  </div>
+  <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="..">Index</a></li>
+      <li><a href="/">Site</a></li>
+      <li><a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a></li>
+    </div>
+</nav>
+</div>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
