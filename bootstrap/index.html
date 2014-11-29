@@ -15,18 +15,18 @@
 </head>
 <body>
 <div class="container">
+
+<!-- Jumbotron -->
+<div class="row"><p></p></div>
 <div class="jumbotron">
 <h1>Getting Started With Bootstrap</h1>
-<h2>References</h2>
-<ul>Source site and tutorials.
-<li><a href="http://getbootstrap.com/">Offical Site</a></li>
-<li><a href="http://getbootstrap.com/getting-started/">Getting started</a></li>
-<li><a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/">Tutorial Republic</a></li>
-</ul>
-</div>
-</div>
+<p>A first effort at using Bootstrap to manage the page layout with less effort and more style. Introduces how to download and install the code then create a simple layout for the page.</p>
+</div> <!-- jumbotron -->
+<!-- Jumbotron Ends -->
+
 <div class="row">
-<div class="col-xs-6">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
 <h2>Enabling Your Site</h2>
 <ol>Steps to getting your web pages bootstrapped.
 <li>Download the zip file from the <a href="http://getbootstrap.com/getting-started/">getting started</a> page of the bootstrap site.</li>
@@ -50,10 +50,15 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
 </pre>
 </li>
 </ol>
-</div>
-<div class="col-xs-6">
+</div> <!-- col enabling your site -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
 <h2>Creating A Layout</h2>
-<ol>This page has a simple layout with a header (the title and references), some columns (each section) and a footer (the navigation section).</p>
+<ol>This page has a simple layout with a header (the title and some introductory text), some rows and columns (each section) and a footer (the navigation section).</p>
 <li>Sorround all of the page that you want to be bootstrapped with a "div" tag with a class of "container".
 <pre>
 &lt;div class="container">
@@ -85,8 +90,13 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
 <li>The navigation section uses a "nav" and a "navbar" tag. See the next section for more details.
 </li>
 </ol>
-</div>
-<div class="col-xs-6">
+</div> <!-- col creating a layout -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
 <h2>Creating A Navbar</h2>
 <ol>Add a navbar to the page to replace the simple links.
 <li>Use the HTML5 "<a href="http://www.w3schools.com/tags/tag_nav.asp">nav</a>" tag to denote the area for navigation controls. The bootstrap classes "navbar" and "navber-default" create a default type of navbar.
@@ -121,8 +131,92 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
 </pre>
 </li>
 </ol>
-</div>
-</div>
+</div> <!-- col creating a navbar -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
+<h2>Improving The Layout</h2>
+<ol>The layout where everything is in one row looks a bit cramped and there is now no margin around the text where they line up against each other. Each section is a different size and the effect makes the text look chequered.
+<li>A better layout is to give each section its own row and then use empty columns to pad out a margin. At the same time add some comments to the closing "div" tags so that you can keep track of them.
+<pre>
+&lt;div class="row">
+&lt;div class="col-xs-1">&lt;/div>
+&lt;div class="col-xs-10">
+&lt;h2>Improving The Layout&lt;/h2>
+&lt;/div> &lt;!-- col improving the layout-->
+&lt;div class="col-xs-1">&lt;/div>
+&lt;/div> &lt;!-- row -->
+</pre>
+</li>
+<li>Now each section is spaced out so that it stands out on its own. The source is easier to read and you have less risk of putting one div inside the wrong one in the hierarchy.</li>
+<li>The Jumbotron looks a little cramped at the top so add an empty row to separate it from the top of the screen. Just use a paragraph tag to force the row to occupy some space.
+<pre>
+&lt;div class="row">&lt;p>&lt;/p>&lt;/div>
+</pre>
+</li>
+<li>To maintain the indented look of each paragraph, and to emphasise the instructional look of the site, each section is one ordered list. The main text goes in the header section and every paragraph after is a list item.
+<pre>
+&lt;ol>This is the main text
+&lt;li>This is next para ...&lt;/li>
+&lt;li>... and this is some more&lt;/li>
+&lt;/ol>
+</pre>
+</li>
+</ol>
+</div> <!-- col improving the layout -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
+<h2>Fixing The Style</h2>
+<ol>The style of this site is trying to look like an antique document - sort of. The background colour is "burlywood" which looks a little like aged paper. The headings are "darkred" and have some "red" shadow to look a little like illuminated text. The Jumbotron and Navbar however have not picked up on this style. They both have a grey background and the Jumbotron text is black instead of read, even though it has picked up the shadow effect.
+<li>To fix the Jumbotron set a style for the class "jumbotron" with a new background colour. I have chosen "lightgoldenrodyellow" for now as I like the lighter contrast with the background.
+<pre>
+.jumbotron {
+    background-color:lightgoldenrodyellow;
+}
+</pre>
+</li>
+<li>To fix the Jumbotron heading colour a separate style is needed for the "h1" element.
+<pre>
+.jumbotron h1{
+    color:darkred;
+}
+</pre>
+</li>
+<li>And the navbar background colour is set the same way for the "navbar" class.
+<pre>
+.navbar {
+    background-color:lightgoldenrodyellow;
+}
+</pre>
+</li>
+</ol>
+</div> <!-- col fixing the style -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+
+<!-- References -->
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
+<h2>References</h2>
+<ul>Source site and tutorials.
+<li><a href="http://getbootstrap.com/">Offical Site</a></li>
+<li><a href="http://getbootstrap.com/getting-started/">Getting started</a></li>
+<li><a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/">Tutorial Republic</a></li>
+</ul>
+</div> <!-- col references -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+<!-- References Ends -->
+
+<!-- Navigation -->
 <nav role="navigation" class="navbar navbar-default">
   <div class="navbar-header">
     <button type="button" data-target="#navbarCollapse" 
@@ -142,7 +236,9 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
     </ul>
   </div>
 </nav>
-</div>
+<!-- Navigation Ends -->
+
+</div> <!-- container -->
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 </body>

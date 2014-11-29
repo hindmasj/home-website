@@ -119,3 +119,24 @@ article{
 .grid path {
       stroke-width: 0;
 }
+
+/* **********************
+ * Bootstrap Examples
+ * **********************/
+
+.jumbotron {
+    background-color:lightgoldenrodyellow;
+}
+
+.jumbotron h1{
+    color:darkred;
+}
+
+.navbar {
+    background-color:lightgoldenrodyellow;
+}
+
+/* **********************
+ * End
+ * **********************/
+
