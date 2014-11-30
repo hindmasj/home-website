@@ -1,3 +1,11 @@
+2014-11-30  Steve  <sjh@kanga.hindmarch.home>
+
+	* index.html
+	* index.css
+	* navbar.html
+	* bootstrap/index.html
+	- added an introduction to bootstrap
+
 2014-01-09  Steve Hindmarch  <stephen.hindmarch@bt.com>
 
 	* d3_iwd_v3.html:

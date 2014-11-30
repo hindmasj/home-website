@@ -99,7 +99,7 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
 <div class="col-xs-10">
 <h2>Creating A Navbar</h2>
 <ol>Add a navbar to the page to replace the simple links.
-<li>Use the HTML5 "<a href="http://www.w3schools.com/tags/tag_nav.asp">nav</a>" tag to denote the area for navigation controls. The bootstrap classes "navbar" and "navber-default" create a default type of navbar.
+<li>Use the HTML5 "<a href="http://www.w3schools.com/tags/tag_nav.asp">nav</a>" tag to denote the area for navigation controls. The bootstrap classes "navbar" and "navbar-default" create a default type of navbar.
 <pre>
 &lt;nav role="navigation" class="navbar navbar-default">
 &lt;/nav>
@@ -118,7 +118,7 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
 &lt;/div>
 </pre>
 </li>
-<li>Add the actual navbar buttons in an unordered list. The list is sorrounded by a div which declares the list to be collapsable and provides a target for the menu button.
+<li>Add the actual navbar buttons in an unordered list. The list is sorrounded by a div which declares the list to be collapsible and provides a target for the menu button.
 <pre>
 &lt;div id="navbarCollapse" class="collapse navbar-collapse">
 &lt;ul class="nav navbar-nav">
@@ -201,6 +201,26 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
 <div class="col-xs-1"></div>
 </div> <!-- row -->
 
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
+<h2>Reusing The Navbar</h2>
+<ol>I want to reuse the same nav bar in many pages but obviously do not want to replicate the code in each html file. Instead I want to find a way of including the same block of code repeatedly.
+<li>Break out the navbar code into its own file.</li>
+<li><b>After</b> the script line that loads JQuery, add a JQuery function to load the navbar code and assign it an ID. Note that the loading address is relative to the current page.
+<pre>
+&lt;script>$(function(){$("#mynavbar").load("../navbar.html");});&lt;/script>
+</pre>
+<li>Include the navbar in the body of the page by calling the ID within a "div" tag.
+<pre>
+&lt;div id="mynavbar"/>
+</pre>
+</ol>
+
+</div> <!-- col reusing the navbar -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+
 <!-- References -->
 <div class="row">
 <div class="col-xs-1"></div>
@@ -210,36 +230,18 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
 <li><a href="http://getbootstrap.com/">Offical Site</a></li>
 <li><a href="http://getbootstrap.com/getting-started/">Getting started</a></li>
 <li><a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/">Tutorial Republic</a></li>
+<li><a href="http://stackoverflow.com/questions/8988855/include-another-html-file-in-a-html-file">Stackoverflow: include-another-html-file-in-a-html-file</a></li>
 </ul>
 </div> <!-- col references -->
 <div class="col-xs-1"></div>
 </div> <!-- row -->
 <!-- References Ends -->
 
-<!-- Navigation -->
-<nav role="navigation" class="navbar navbar-default">
-  <div class="navbar-header">
-    <button type="button" data-target="#navbarCollapse" 
-	    data-toggle="collapse" class="navbar-toggle">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a href="#navbarCollapse" class="navbar-brand">Navigation</a>
-  </div>
-  <div id="navbarCollapse" class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
-      <li><a href="..">Index</a></li>
-      <li><a href="/">Site</a></li>
-      <li><a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a></li>
-    </ul>
-  </div>
-</nav>
-<!-- Navigation Ends -->
+<div id="mynavbar"/>
 
 </div> <!-- container -->
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>$(function(){$("#mynavbar").load("../navbar.html");});</script>
 </body>
 </html>
