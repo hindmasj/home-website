@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <!--
   -- Simple Home Page, Collecting Learning
-  -- Copyright SJ Hindmarch 2013, 2014
+  -- Copyright SJ Hindmarch 2013, 2014, 2015
   -- Distributed under the GNU General Public License
   --
   -- $Id$ 
@@ -10,32 +10,53 @@
 <head>
 <title>Index Page</title>
 <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" 
+      href="/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 <body>
+<div class="container">
+
+<!-- Jumbotron -->
+<div class="row"><p></p></div>
+<div class="jumbotron">
 <h1>The Local Home Page</h1>
 <h2>External Pages</h2>
 <table class="open">
 <tr><th class="horizontal">Home page</th>
+<td>&nbsp;</td>
 <td><a href="http://home.btconnect.com/sjhindmarch/" target="btconnect">
 home.btconnect.com/sjhindmarch</a></td></tr>
 <tr><th class="horizontal">Github</th>
+<td>&nbsp;</td>
 <td><a href="https://github.com/hindmasj" target="github">
 hindmasj</a></td></tr>
 </table>
+</div> <!-- jumbotron -->
+<!-- Jumbotron Ends -->
 <hr/>
+
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
 <h2>Internal Pages</h2>
 <li><a href="emacs.html">Some Favourite Emacs Settings</a></li>
 <li><a href="apache.html">Using Apache HTTPD</a></li>
 <li><a href="d3.html">Getting to grips with D3</a></li>
 <li><a href="bootstrap/index.html">Having a go at bootstrap</a></li>
+</div> <!-- col internal pages -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+
 <hr/>
-<h2>Navigation</h2>
-<p>
-[<a href="/">Site</a>]
-[<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
-</p>
-<hr/>
+<div id="mynavbar"/>
+
+</div> <!-- container -->
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>$(function(){$("#mynavbar").load("navbar.html");});</script>
 </body>
 </html>
 

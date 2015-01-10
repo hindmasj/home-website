@@ -1,7 +1,7 @@
 /*
  * Some simple styles
  *
- * Copyright SJ Hindmarch 2013, 2014
+ * Copyright SJ Hindmarch 2013, 2014, 2015
  * Distributed under the GNU General Public License
  *
  * $Id$
@@ -125,7 +125,7 @@ article{
  * **********************/
 
 .jumbotron {
-    background-color:lightgoldenrodyellow;
+    background-color:#E7CDAB;
 }
 
 .jumbotron h1{
@@ -133,7 +133,7 @@ article{
 }
 
 .navbar {
-    background-color:lightgoldenrodyellow;
+    background-color:#E7CDAB;
 }
 
 /* **********************

@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <!--
   -- Some experiments in bootstrap.
-  -- Copyright SJ Hindmarch 2014
+  -- Copyright SJ Hindmarch 2014, 2015
   -- Distributed under the GNU General Public License
   -->
 <html>
@@ -175,7 +175,7 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
 <div class="col-xs-10">
 <h2>Fixing The Style</h2>
 <ol>The style of this site is trying to look like an antique document - sort of. The background colour is "burlywood" which looks a little like aged paper. The headings are "darkred" and have some "red" shadow to look a little like illuminated text. The Jumbotron and Navbar however have not picked up on this style. They both have a grey background and the Jumbotron text is black instead of read, even though it has picked up the shadow effect.
-<li>To fix the Jumbotron set a style for the class "jumbotron" with a new background colour. I have chosen "lightgoldenrodyellow" for now as I like the lighter contrast with the background.
+<li>To fix the Jumbotron set a style for the class "jumbotron" with a new background colour. I originally chose "lightgoldenrodyellow" to get the feel of the lighter contrast with the background. Then for more accuracy I used the colour matching site <a href="http://www.color-hex.com/color/deb887">Color-Hex.com</a> to find a matching tint. I chose <a href="http://www.color-hex.com/color/e7cdab">#E7CDAB</a>.
 <pre>
 .jumbotron {
     background-color:lightgoldenrodyellow;
@@ -242,6 +242,6 @@ chcon -R -t httpd_sys_content_t /var/www/html/bootstrap-*-dist
 </div> <!-- container -->
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
-<script>$(function(){$("#mynavbar").load("../navbar.html");});</script>
+<script>$(function(){$("#mynavbar").load("navbar.html");});</script>
 </body>
 </html>
