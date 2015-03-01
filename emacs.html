@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <!--
-  -- Copyright SJ Hindmarch 2013, 2014
+  -- A crib sheet for using Emacs.
+  -- Copyright SJ Hindmarch 2013-2015
   -- Distributed under the GNU General Public License
   --
   -->
@@ -8,24 +9,30 @@
 <head>
 <title>Favourite Emacs Settings</title>
 <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" 
+      href="/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
+
 <body>
-<header>
+<div class="container">
+
+<!-- Jumbotron -->
+<div class="row"><p></p></div>
+<div class="jumbotron">
 <h1>Favourite Emacs Settings</h1>
-<details>
-<summary>Contents</summary>
-<nav>
-<ul>
+<h2>Contents</h2>
 <li><a href="#about">About Emacs Settings</a></li>
 <li><a href="#custom">Custom Set Variables</a></li>
 <li><a href="#other">Other Settings</a></li>
-</ul>
-</nav>
-</details>
-</header>
+</div> <!-- jumbotron -->
+<!-- Jumbotron Ends -->
 <hr/>
-<article>
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
 <h2 id="about">About Emacs Settings</h2>
 <h3>Documentation</h3>
 <p>The <a href="http://www.gnu.org/software/emacs/manual/">emacs manual</a>.</p>
@@ -38,8 +45,14 @@
 <li>A tutorial geared to the <a href="http://ergoemacs.org/emacs/elisp.html">needs of emacs</a> programmers from <a href="http://ergoemacs.org/">ergoemacs.org</a>.</li>
 </ul>
 </p>
-</article>
-<article>
+</div> <!-- col about -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+<hr/>
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
 <h2 id="custom">Custom Set Variables</h2>
 <p>A lot of the settings are contained in a list called <i>custom-set-variables</i> to which you add variable set commands. You must ensure you only define the list once, so always add new variables to the existing setting. Once complete the list will look something like this.
 <pre>
@@ -76,11 +89,17 @@ In the sections below each variable is shown as if it were the only one set.
 </pre>
 (Line numbers are shown by default, under the control of "line-number-mode").
 </p>
-</article>
-<article>
+</div> <!-- col custom -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+<hr/>
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
 <h2 id="other">Other Settings</h2>
 <h3>Size Default Frame</h3>
-<p>I like big frames so I can see what I am doing. I like to program sticking to the 80 column rule. So I would really like my initial emacs frame to open up 80 characters wide and almost as tall as the screen. You can play around with the frame until you get it right and then it in custom setting so it gets used every time.</p>
+<p>I like big frames so I can see what I am doing. I like to program sticking to the 80 column rule. So I would really like my initial emacs frame to open up 80 characters wide and almost as tall as the screen. You can play around with the frame until you get it right and then pin it in a custom setting so it gets used every time.</p>
 <p>Let's say that the ideal size for the current machine is 80x48, which on the laptop I am using right now gives me one line above and below the frame where I can still see the desktop. So now how I make sure emacs opens in those dimensions every time?</p>
 <p>You need to add the width and height parameters to the option "default-frame-alist". See <a href="http://www.gnu.org/software/emacs/manual/html_node/elisp/Frame-Parameters.html#Frame-Parameters">the manual</a> for the full list of parameters.
 <pre>
@@ -97,20 +116,20 @@ In the sections below each variable is shown as if it were the only one set.
 The numbers are in pixels, so you may need to play around to get the scaling right. The top value is measured from the top of the screen, not of the usable desktop, so if you set the value too small it will interfere with the gnome activity bar and the window manager will move the frame to the top of the desktop.
 </p>
 <h3>Remove The Splash Screen</h3>
-<p>Once you have the splash screen you do not need to see it again. So remove it.
+<p>Once you have seen the splash screen you do not need to see it again. So remove it.
 <pre>
 (setq inhibit-startup-message t)
 </pre>
 </p>
-</article>
-<nav>
-<h2>Navigation</h2>
-<p>
-[<a href=".">Index</a>]
-[<a href="/">Site</a>]
-[<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
-</p>
-</nav>
+</div> <!-- col other -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
 <hr/>
+
+<div id="mynavbar"/>
+</div> <!-- container -->
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>$(function(){$("#mynavbar").load("navbar.html");});</script>
 </body>
 </html>

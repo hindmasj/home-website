@@ -1,6 +1,6 @@
 /* 
  * D3 Data Joins Example
- * Copyright SJ Hindmarch 2013, 2014
+ * Copyright SJ Hindmarch 2013-2015
  * Distributed under the GNU General Public License
  */
 
@@ -19,13 +19,15 @@ function process(){
     // Organise display
     var workarea=d3.select('#workarea');
     var bararea=workarea.selectAll('[name="bararea"]');
+    var boxarea=workarea.selectAll('[name="boxarea"]');
+
+    if(boxarea.empty()){
+	boxarea=workarea.append('div').attr('name','boxarea');
+    }
+
     if(bararea.empty()){
 	bararea=workarea.append('div').attr('name','bararea');
 	workarea.append('br');
-    }
-    var boxarea=workarea.selectAll('[name="boxarea"]');
-    if(boxarea.empty()){
-	boxarea=workarea.append('div').attr('name','boxarea');
     }
 
     // Show data in text area
@@ -54,4 +56,7 @@ function process(){
     .attr('cx',function(d){return scale_x(d)})
     .attr('r',function(d){return scale_r(Math.sqrt(d))});
     c.exit().remove();
+
+    // Resize workarea
+    workarea.attr('style','height:auto');
 }

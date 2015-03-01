@@ -1,18 +1,38 @@
 <!DOCTYPE html> 
 <!--
   -- Getting to grips with D3
-  -- Copyright SJ Hindmarch 2013, 2014
+  -- Copyright SJ Hindmarch 2013-2015
   -- Distributed under the GNU General Public License
   -->
 <html>
 <head>
 <title>Getting To Grips With D3</title>
 <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" 
+      href="/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
+
 <body>
+<div class="container">
+
+<!-- Jumbotron -->
+<div class="row"><p></p></div>
+<div class="jumbotron">
 <h1>Getting To Grips With D3</h1>
-<h2>First Exercises</h2>
+<h2>Contents</h2>
+<li><a href="#FirstExercises">First Exercises</a></li>
+<li><a href="#VisualisingPriorities">Visualising Priorities</a></li>
+<li><a href="#References">References</a></li>
+</div> <!-- jumbotron -->
+<!-- Jumbotron Ends -->
+<hr/>
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
+<h2><a name="FirstExercises"></a>First Exercises</h2>
 <ul>Following some of the D3 tutorials and going beyond
   <li><a href="d3_template.html">Template / Playpen</a></li>
   <li><a href="d3_circles.html">Circles</a></li>
@@ -20,15 +40,29 @@
   <li><a href="d3_bar.html">Bar Chart</a></li>
   <li><a href="d3_xyplot.html">XY Plot</a></li>
 </ul>
-</hr>
-<h2>Visualising Priorities</h2>
+</div> <!-- col first exercises -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+<hr/>
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
+<h2><a name="VisualisingPriorities"></a>Visualising Priorities</h2>
 <ul>An exercise to create a design tool for visualising iWD priorities for different interaction types over time.
 <li>Version 1: <a href="d3_iwd_v1.html">Showing existing priorities</a></li>
 <li>Version 2: <a href="d3_iwd_v2.html">Read priorities from a table</a></li>
 <li>Version 3: <a href="d3_iwd_v3.html">Use profiles to create priorities</a></li>
 </ul>
-</hr>
-<h2>References</h2>
+</div> <!-- col visualising -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
+<hr/>
+
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
+<h2><a name="References"></a>References</h2>
 <ul>
   <li><a href="http://d3js.org/">Main Site</a></li>
   <li><a href="https://github.com/mbostock/d3/wiki">Documentation</a></li>
@@ -37,13 +71,15 @@
   <li><a href="http://d3js.org/d3.v2.js">Download</a></li>
   <li><a href="https://github.com/mbostock/d3">Source</a></li>
 </ul>
+</div> <!-- col references -->
+<div class="col-xs-1"></div>
+</div> <!-- row -->
 <hr/>
-<h2>Navigation</h2>
-<p>
-[<a href=".">Index</a>]
-[<a href="/">Site</a>]
-[<a href="http://home.btconnect.com/sjhindmarch/">External Home Page</a>]
-</p>
-<hr/>
+
+<div id="mynavbar"/>
+</div> <!-- container -->
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>$(function(){$("#mynavbar").load("navbar.html");});</script>
 </body>
 </html>
